@@ -7,9 +7,7 @@ class NumberBaseball
     {
         int computerNum;
         int inputNum = 0;
-        int tryCount = 0;
-        int strikeCount = 0;
-        int ballCount = 0;
+        int tryCount = 1;
 
         string comString;
         string inputString;
@@ -20,22 +18,39 @@ class NumberBaseball
         {
             computerNum = rand.Next(102, 988);
             comString = computerNum.ToString();
-            comString = comString.Distinct();
-            if(comString.Count() == 3)
+            if(comString.Distinct().Count() == 3)
             {
                 break;
             }
 
         }
-        while(computerNum != inputNum)
+        while(true)
         {
             inputNum = int.Parse(Console.ReadLine());
+            if(inputNum == computerNum)
+            {
+                break;
+            }
+
             inputString = inputNum.ToString();
+            int strikeCount=0;
+            int ballCount=0;
             for(int i = 0; i<3; i++)
             {
-                
+                for(int j=0; j<3; j++){
+                    if(inputString[i] == comString[j]){
+                        if(i == j){
+                            strikeCount++;
+                        }
+                        else{
+                            ballCount++;
+                        }
+                    }
+                }
             }
+            Console.WriteLine($"결과 : {strikeCount} strike, {ballCount} ball");
             tryCount++;
         }
+        Console.WriteLine($"결과 : 정답입니다! (총 시도 횟수 : {tryCount}회)");
     }
 }
