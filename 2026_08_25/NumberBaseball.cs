@@ -26,6 +26,7 @@ class NumberBaseball
         }
         while(true)
         {
+            Console.Write("값을 입력하세요 : ");
             inputNum = int.Parse(Console.ReadLine());
             if(inputNum == computerNum)
             {
