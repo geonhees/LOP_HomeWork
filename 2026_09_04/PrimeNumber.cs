@@ -20,6 +20,7 @@ class PrimeNumber
                 continue;
             }
             //j는 i의 배수니까 그 위치에 있는 수를 없애기 위한 반복문
+            //i보다 작은수 배수는 이미 걸렀으니까 i*i부터
             for(int j=i*i; j<num; j += i)
             {
                 //j에 있는 수 true로 바꿔서 false인거만 걸러내기
